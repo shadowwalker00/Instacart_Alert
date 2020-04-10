@@ -1,11 +1,4 @@
-import sys, os, re, requests, time, json
-from datetime import datetime
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-
+import sys, os, re, time, json
 from utils import *
 
 chromedriver = "./chromedriver"
@@ -18,28 +11,8 @@ password = credential['wholefoods']['passwd']
 assert('username' in credential['wholefoods'])
 assert('passwd' in credential['wholefoods'])
 
-
-
 # hyper parameter
 time_lapse = 3.0
-
-def create_driver():
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--incognito")
-    driver = webdriver.Chrome(chromedriver, options=chrome_options)
-    return driver
-
-def terminate(driver):
-    driver.quit()
-
-def error_alert():
-    while True:
-        os.system('say "Whole Food ERROR"')
-
-def display_time():    
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    return current_time
 
 def check_slots():
     print('Creating Chrome Driver ...')
@@ -99,7 +72,7 @@ def check_slots():
                 break
         if slots_available: 
             print('Slots Available!')
-            sound_alert()
+            sound_alert_macos('say "WholeFoods Find Slot GO GET IT"')
             break
         else:
             print('Cur time: {}, No slots available. Sleeping ...'.format(display_time()))

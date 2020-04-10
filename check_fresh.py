@@ -1,15 +1,9 @@
-import sys, os, re, requests, time, json
-from datetime import datetime
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import sys, os, re, time, json
 
-chromedriver = "./chromedriver"
+from utils import *
 
 # amazon credentials
-with open('./credential.json') as f:
+with open('./local_credential.json') as f:
     credential = json.load(f)
 username = credential['wholefoods']['username']
 password = credential['wholefoods']['passwd']
@@ -18,24 +12,6 @@ assert('passwd' in credential['wholefoods'])
 
 # hyper parameter
 time_lapse = 2.0
-
-def create_driver():
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--incognito")
-    driver = webdriver.Chrome(chromedriver, options=chrome_options)
-    return driver
-
-def terminate(driver):
-    driver.quit()
-
-def sound_alert():
-    while True:
-        os.system('say "Amazon Fresh Find Slot GO GET IT"')
-
-def display_time():    
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    return current_time
 
 def check_slots():
     print('Creating Chrome Driver ...')
@@ -86,7 +62,7 @@ def check_slots():
                 break
         if slots_available: 
             print('Slots Available!')
-            sound_alert()
+            sound_alert_macos('say "Amazon Fresh Find Slot GO GET IT"')
             break
         else:
             print('Cur time: {}, No slots available. Sleeping ...'.format(display_time()))

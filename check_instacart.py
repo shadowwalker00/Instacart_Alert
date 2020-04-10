@@ -1,13 +1,8 @@
 import json
-import sys, os, re, requests, time
-from datetime import datetime
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import sys, os, re, time
 
-chromedriver = "./chromedriver"
+from utils import *
+
 
 # instacart credentials
 with open('./credential.json') as f:
@@ -20,23 +15,6 @@ assert('passwd' in credential['instacart'])
 # hyper parameter
 time_lapse = 2.0
 
-def create_driver():
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--incognito")
-    driver = webdriver.Chrome(chromedriver, options=chrome_options)
-    return driver
-
-def terminate(driver):
-    driver.quit()
-
-def sound_alert():
-    while True:
-        os.system('say "Instacart Find Slot GO GET IT"')
-
-def display_time():    
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    return current_time
 
 def check_slots():
     print('Creating Chrome Driver ...')
@@ -96,7 +74,7 @@ def check_slots():
         
         if slots_available == True:
             print('Slots Available!')
-            sound_alert()
+            sound_alert_macos('say "Instacart Find Slot GO GET IT"')
             break
         else:
             print('Cur time: {}, No slots available. Sleeping ...'.format(display_time()))
