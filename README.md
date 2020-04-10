@@ -1,6 +1,7 @@
 # instacart_alert
 ## Intro
-Selenium web bot to check availability of delivery slots from online groceries, including Amazon Fresh, Wholefoods and Instacart.
+Selenium web bot to check availability of delivery slots from online groceries, including Amazon Fresh, Wholefoods and Instacart during this difficult quarantine period.
+The scripts are not that generalized. Thus, welcome to pull requests.
 
 ## Usage
 1. clone the repo to local
@@ -14,3 +15,5 @@ Selenium web bot to check availability of delivery slots from online groceries, 
 6. Then check out yourself manually.
 
 **NOTE**: in order to checkout as fast as possible, you need to add items into cart before hand.
+## Reference
+https://medium.com/better-programming/build-amazonfresh-delivery-slot-alerts-c9e12a429e23
