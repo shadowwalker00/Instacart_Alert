@@ -1,4 +1,4 @@
-import sys, os, re, requests, time
+import sys, os, re, requests, time, json
 from datetime import datetime
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -9,8 +9,13 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 chromedriver = "./chromedriver"
 
 # amazon credentials
-amazon_username = "fake@email"
-amazon_password = "00000"
+with open('./credential.json') as f:
+    credential = json.load(f)
+username = credential['wholefoods']['username']
+password = credential['wholefoods']['passwd']
+assert('username' in credential['wholefoods'])
+assert('passwd' in credential['wholefoods'])
+
 
 
 # hyper parameter
@@ -46,11 +51,11 @@ def check_slots():
     print('Logging into Amazon ...')
     driver.get('https://www.amazon.com/gp/sign-in.html')
     email_field = driver.find_element_by_css_selector('#ap_email')
-    email_field.send_keys(amazon_username)
+    email_field.send_keys(username)
     driver.find_element_by_css_selector('#continue').click()
     time.sleep(time_lapse)
     password_field = driver.find_element_by_css_selector('#ap_password')
-    password_field.send_keys(amazon_password)
+    password_field.send_keys(password)
     driver.find_element_by_css_selector('#signInSubmit').click()
     time.sleep(time_lapse)
 

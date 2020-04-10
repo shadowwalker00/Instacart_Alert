@@ -1,3 +1,4 @@
+import json
 import sys, os, re, requests, time
 from datetime import datetime
 from selenium import webdriver
@@ -9,8 +10,12 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 chromedriver = "./chromedriver"
 
 # instacart credentials
-username = "fake@mail"
-password = "0000000"
+with open('./credential.json') as f:
+    credential = json.load(f)
+username = credential['instacart']['username']
+password = credential['instacart']['passwd']
+assert('username' in credential['instacart'])
+assert('passwd' in credential['instacart'])
 
 # hyper parameter
 time_lapse = 2.0
