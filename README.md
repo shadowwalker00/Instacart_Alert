@@ -13,4 +13,4 @@ Selenium web bot to check availability of delivery slots from online groceries, 
 5. When available slot found, the speaker will make a sound saying, such as "Whole Food Find Slot GO GET IT". (Based on mac's say command. There might be other alternatives on windows and linux)
 6. Then check out yourself manually.
 
-**NOTE**: in order to checkout as fast as possible, you need to add items in to cart before hand.
+**NOTE**: in order to checkout as fast as possible, you need to add items into cart before hand.
