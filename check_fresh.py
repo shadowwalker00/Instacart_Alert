@@ -6,10 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.dirname(BASE_DIR)
-print(ROOT_DIR)
-chromedriver = ROOT_DIR + "/AmazonFresh/chromedriver"
+chromedriver = "./chromedriver"
 
 # amazon credentials
 amazon_username = "guc001@eng.ucsd.edu"
@@ -21,7 +18,7 @@ time_lapse = 2.0
 def create_driver():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--incognito")
-    driver = webdriver.Chrome(chromedriver, chrome_options=chrome_options)
+    driver = webdriver.Chrome(chromedriver, options=chrome_options)
     return driver
 
 def terminate(driver):
