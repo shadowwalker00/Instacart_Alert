@@ -6,7 +6,7 @@ The scripts are not that generalized. Thus, welcome to pull requests.
 ## Usage
 1. clone the repo to local
 2. cd into the folder and activate the virtual env ```source bin/activate```
-3. change the email and password
+3. change the email and password in ```credential.json```
 4. run the scripts
    1. [check instacart] ```python3 check_instacart.py```
    2. [check wholefoods] ```python3 check_wholefoods.py```
@@ -17,3 +17,7 @@ The scripts are not that generalized. Thus, welcome to pull requests.
 **NOTE**: in order to checkout as fast as possible, you need to add items into cart before hand.
 ## Reference
 https://medium.com/better-programming/build-amazonfresh-delivery-slot-alerts-c9e12a429e23
+
+## Update
+- [x] Fix bug for instacart after refresh
+- [x] add windows platform sound alert (Thanks for @qwertyva1's contribution)
