@@ -6,6 +6,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+from utils import *
+
 chromedriver = "./chromedriver"
 
 # amazon credentials
@@ -29,11 +31,6 @@ def create_driver():
 
 def terminate(driver):
     driver.quit()
-
-def sound_alert():
-    while True:
-        os.system('say "Whole Food Find Slot GO GET IT"')
-
 
 def error_alert():
     while True:
