@@ -9,8 +9,8 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 chromedriver = "./chromedriver"
 
 # amazon credentials
-amazon_username = "guc001@eng.ucsd.edu"
-amazon_password = "shadow0419"
+amazon_username = "fake@mail"
+amazon_password = "0000000"
 
 # hyper parameter
 time_lapse = 2.0
